@@ -40,7 +40,17 @@ static void declare_event() {
     ax_event_key_value_set_mark_as_data(key_value_set, "Value", NULL, NULL);
     ax_event_key_value_set_mark_as_user_defined(key_value_set, "Value", NULL, "wstype:xs:float", NULL);
 
-    ax_event_handler_declare(event_handler, key_value_set, FALSE, &event_declaration_id, NULL, NULL, &error);
+	if (!ax_event_handler_declare(event_handler,
+							  key_value_set,
+							  FALSE,  // Indicate a property state event
+							  &event_declaration_id,
+							  NULL,
+							  dummy_value,
+							  &error)) {
+        syslog(LOG_WARNING, "Could not declare: %s", error->message);
+        g_error_free(error);
+    }
+
     ax_event_key_value_set_free(key_value_set);
 
     if (error) {
