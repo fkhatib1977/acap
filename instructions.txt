@@ -1,0 +1,86 @@
+background:
+given axis camera with this version
+{
+  "apiVersion": "1.3",
+  "data": {
+    "propertyList": {
+      "Architecture": "aarch64",
+      "ProdNbr": "M3085-V",
+      "HardwareID": "932.4",
+      "ProdFullName": "AXIS M3085-V Network Camera",
+      "Version": "11.9.60",
+      "ProdType": "Network Camera",
+      "SocSerialNumber": "62DFAFE2-A8278CB4-C47D401D-61C6F8ED",
+      "Soc": "Ambarella CV25",
+      "Brand": "AXIS",
+      "WebURL": "http://www.axis.com",
+      "ProdVariant": "",
+      "SerialNumber": "B8A44FCEFAA7",
+      "ProdShortName": "AXIS M3085-V",
+      "BuildDate": "Feb 23 2024 21:23"
+    }
+  },
+  "context": "Client defined request ID"
+}
+
+What You've Asked For & What We've Done
+1. ACAP App Setup
+- You asked for a step-by-step guide to create an ACAP app in C.
+- We created a folder structure with:
+- main.c — your app logic
+- Makefile — for compiling
+- manifest.json — for metadata and permissions
+- Dockerfile — to build the .eap package using Axis’s official SDK
+2. Docker Build
+- You're using Docker Desktop on Windows.
+- We used the official Axis ACAP Native SDK Docker image (axisecp/acap-native-sdk:latest-aarch64) to build the app.
+- You now have a working Docker build flow that outputs a .eap file ready to deploy to your camera.
+3. TCP Server Code
+- You provided a full C implementation of a TCP socket server that listens on port 9090 and prints received temperature data.
+- We confirmed this code is compatible with AXIS OS and ACAP SDK.
+4. Makefile Comparison
+- You asked how your cross-compiler Makefile compares to the SDK-style one.
+- We recommended using the SDK-style Makefile inside the Docker container for simplicity and compatibility.
+5. Manifest Comparison
+- You showed a custom manifest format.
+- We compared it to the official manifest.json format and confirmed that JSON is required for Axis SDK and camera deployment.
+
+🧱 Current Status
+You now have:
+- ✅ A working C app that listens for temperature data
+- ✅ A valid manifest.json with network permissions
+- ✅ A Dockerfile that builds the .eap package
+- ✅ A clear path to install and run the app on your AXIS M3085-V camera
+
+we haven't built the .eap, I need step by step
+
+
+folder structure:
+
+Directory: C:\AXIS\Firas
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          9/6/2025  11:15 AM                libmicrohttpd
+d-----          9/6/2025   2:15 AM                src
+-a----          9/6/2025   3:18 AM            330 dockerfile
+-a----          9/6/2025   3:09 AM            862 Makefile
+-a----          9/6/2025   2:57 AM            347 manifest.json
+
+
+    Directory: C:\AXIS\Firas\libmicrohttpd
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          9/6/2025  11:15 AM        1212940 libmicrohttpd.a
+
+
+    Directory: C:\AXIS\Firas\src
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          9/6/2025   2:54 AM           2394 main.c
+

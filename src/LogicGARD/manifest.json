@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.7.4",
+  "acapPackageConf": {
+    "setup": {
+      "appName": "LogicGARD",
+      "friendlyName": "LogicGARD",
+      "vendor": "LogicGARD Systems",
+      "version": "1.0.0",
+      "runMode": "never",
+      "embeddedSdkVersion": "3.0"
+    }
+  }
+}
