@@ -3,7 +3,7 @@
   "acapPackageConf": {
     "setup": {
       "appName": "LogicGARD",
-      "friendlyName": "LogicGARD",
+      "friendlyName": "LogicGARD_ThermoCast",
       "vendor": "LogicGARD Systems",
       "version": "1.0.0",
       "runMode": "never",

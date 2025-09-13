@@ -19,10 +19,3 @@ RUN tar -xzf libmicrohttpd-0.9.76.tar.gz && \
                 --enable-shared --disable-static --disable-doc && \
     make && \
     make install
-
-# Set working directory for your ACAP app
-WORKDIR /app/LogicGARD
-COPY src/LogicGARD /app/LogicGARD
-
-# Default build command: compile and package
-CMD ["/bin/bash", "-c", "source /opt/axis/acapsdk/environment-setup* && make && acap-build ."]
